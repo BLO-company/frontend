@@ -34,7 +34,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Naiban',
       theme: AppTheme.theme,
-      initialRoute: 'welcome',
+      initialRoute: 'home',
       routes: appRoutes,
     );
   }

@@ -7,14 +7,15 @@ class Button extends StatelessWidget {
   final String text;
   final IconData? icon;
   final Function()? onTap;
+  final double width;
 
-  const Button(
-    this.text, {
-    Key? key,
-    this.secundary = false,
-    this.icon,
-    this.onTap,
-  }) : super(key: key);
+  const Button(this.text,
+      {Key? key,
+      this.secundary = false,
+      this.icon,
+      this.onTap,
+      this.width = .9})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class Button extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 56,
-        width: MediaQuery.of(context).size.width * .9,
+        width: MediaQuery.of(context).size.width * width,
         decoration: BoxDecoration(
           color: secundary ? AppTheme.white2 : AppTheme.green,
           borderRadius: BorderRadius.circular(100),

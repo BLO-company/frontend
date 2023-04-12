@@ -23,6 +23,9 @@ class GoogleSignInService {
       final session = await http
           .post(signInWithGoogleEndpoint, body: {'token': googleKey.idToken});
 
+      // Recibir el Token por parte del servidor para posteriormente
+      // guardarlo en el SecureStorage y poder mantener la sesión
+
       return account;
     } catch (e) {
       log('Error en Google');
