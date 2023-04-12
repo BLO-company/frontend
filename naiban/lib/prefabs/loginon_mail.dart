@@ -1,9 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:naiban/providers/_providers.dart';
+
 import 'package:provider/provider.dart';
 
+import '../providers/_providers.dart';
 import '../widgets/_widgets.dart';
 
 class LogInOnMail extends StatelessWidget {
@@ -26,7 +25,9 @@ class LogInOnMail extends StatelessWidget {
           Button(
             'Registrate',
             onTap: () async {
-              final verifyForm = await logInOnProv.verifyRegisterForm();
+              final verifyForm = logInOn
+                  ? await logInOnProv.verifyLogInForm()
+                  : await logInOnProv.verifyRegisterForm();
 
               if (verifyForm['status'] == false) {
                 return error(verifyForm['msg']);
