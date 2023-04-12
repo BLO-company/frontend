@@ -52,33 +52,56 @@ class _Data extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                'NAIBAN',
-                style: TextStyle(
-                  fontSize: 56,
-                  fontWeight: FontWeight.bold,
-                  color: AppTheme.white,
-                ),
-              ),
-              Text(
-                'El vehículo que necesitas, cuando lo necesitas.',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                  color: AppTheme.white2,
-                ),
-              ),
-              SizedBox(height: 32),
-              Button('Vamos'),
-            ],
-          ),
+        Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const _Text(),
+            const SizedBox(height: 32),
+            Button(
+              'Vamos',
+              onTap: () {
+                Navigator.pushNamed(context, 'register');
+              },
+            ),
+          ],
         ),
         const SizedBox(height: 64),
       ],
+    );
+  }
+}
+
+class _Text extends StatelessWidget {
+  const _Text();
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    return Container(
+      width: width,
+      padding: EdgeInsets.symmetric(horizontal: width * .05),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            'NAIBAN',
+            style: TextStyle(
+              fontSize: 56,
+              fontWeight: FontWeight.bold,
+              color: AppTheme.white,
+            ),
+          ),
+          Text(
+            'El vehículo que necesitas, cuando lo necesitas.',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+              color: AppTheme.white2,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

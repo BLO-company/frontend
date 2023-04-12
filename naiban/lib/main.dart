@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LogInOutProvider()),
+        ChangeNotifierProvider(create: (_) => LogInOnProvider()),
         ChangeNotifierProvider(create: (_) => RegisterProvider()),
       ],
       child: const App(),
@@ -34,7 +34,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Naiban',
       theme: AppTheme.theme,
-      initialRoute: 'register',
+      initialRoute: 'welcome',
       routes: appRoutes,
     );
   }
