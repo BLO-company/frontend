@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
+import '../pages/_pages.dart';
 import '../providers/_providers.dart';
+import '../transitions/_transitions.dart';
 import '../widgets/_widgets.dart';
 
 class LogInOnMail extends StatelessWidget {
@@ -13,6 +15,7 @@ class LogInOnMail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void error(String msg) => errorAlert(context, msg);
+    void goToHome() => instantTransition(context, const HomePage());
 
     final logInOnProv = Provider.of<LogInOnProvider>(context, listen: false);
 
@@ -29,9 +32,13 @@ class LogInOnMail extends StatelessWidget {
                   ? await logInOnProv.verifyLogInForm()
                   : await logInOnProv.verifyRegisterForm();
 
+              // log('$verifyForm');
+
               if (verifyForm['status'] == false) {
                 return error(verifyForm['msg']);
               }
+
+              goToHome();
             },
           ),
           const SizedBox(height: 64),

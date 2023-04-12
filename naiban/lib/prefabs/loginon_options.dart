@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:naiban/providers/_providers.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/_providers.dart';
 import '../themes/my_theme.dart';
+import '../services/_services.dart';
 import '../widgets/_widgets.dart';
 
 class LogInOnOptions extends StatelessWidget {
@@ -24,7 +27,7 @@ class LogInOnOptions extends StatelessWidget {
 }
 
 class _Buttons extends StatelessWidget {
-  final bool logInOn; // true = In / false = out
+  final bool logInOn; // true = In / false = on
 
   const _Buttons(this.logInOn);
 
@@ -33,7 +36,7 @@ class _Buttons extends StatelessWidget {
     return Column(
       children: [
         Button(
-          'Registrate con Correo',
+          logInOn ? 'Iniciar con Correo' : 'Registrate con Correo',
           onTap: () {
             final prov = Provider.of<LogInOnProvider>(context, listen: false);
             prov.turnMail();
@@ -43,7 +46,8 @@ class _Buttons extends StatelessWidget {
         const Button(
           'Continuar con Google',
           secundary: true,
-          icon: Icons.g_mobiledata,
+          icon: FontAwesomeIcons.google,
+          onTap: GoogleSignInService.signInWithGoogle,
         ),
         const SizedBox(height: 24),
         const Button(

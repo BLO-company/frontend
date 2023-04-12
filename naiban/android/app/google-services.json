@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "685194263082",
+    "project_id": "naiban-31cb5",
+    "storage_bucket": "naiban-31cb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685194263082:android:a0d450d913f50b66366153",
+        "android_client_info": {
+          "package_name": "talent.cartoshare.naiban"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685194263082-uu5pm5rj827tvsjelaoah4cdhuee6p54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "talent.cartoshare.naiban",
+            "certificate_hash": "54080c8217d44ae1d311d775319e30eb2a9ad43b"
+          }
+        },
+        {
+          "client_id": "685194263082-guqdikbtvef4v3ii9uc3q0ct6lb6iksv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsW7sZHATCk-OzgP2dUuy6_ZCZnsSadpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685194263082-d7ijcs1npvuvptg6g8mgcn4p0jl214jb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart'
     show ChangeNotifier, TextEditingController;
 
+import '../services/_services.dart';
+
 class LogInOnProvider extends ChangeNotifier {
   bool _mail = false;
   bool _inOn = false;
+  bool _platicando = false;
 
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
@@ -11,6 +14,12 @@ class LogInOnProvider extends ChangeNotifier {
 
   bool get mail => _mail;
   bool get inOn => _inOn;
+  bool get platicando => _platicando;
+
+  set platicando(bool i) {
+    _platicando = i;
+    notifyListeners();
+  }
 
   turnMail() {
     if (_mail) {
@@ -66,31 +75,24 @@ class LogInOnProvider extends ChangeNotifier {
       };
     }
 
-    // platicando = true;
+    platicando = true;
 
-    // // Registrar cuenta
-    // if (_privacy == true) {
-    //   final registerOk =
-    //       await authService.register(mail.text.trim(), password.text.trim());
+    // Registrar cuenta
+    final registerOk =
+        await authService.register(email.text.trim(), password.text.trim());
 
-    //   platicando = false;
+    platicando = false;
 
-    //   if (registerOk == true) {
-    //     return {
-    //       'status': registerOk,
-    //       'msg': 'Correcto',
-    //     };
-    //   }
-
-    //   return {
-    //     'status': false,
-    //     'msg': registerOk,
-    //   };
-    // }
+    if (registerOk == true) {
+      return {
+        'status': registerOk,
+        'msg': 'Correcto',
+      };
+    }
 
     return {
-      'status': true,
-      'msg': 'Correcto',
+      'status': false,
+      'msg': registerOk,
     };
   }
 
@@ -124,22 +126,17 @@ class LogInOnProvider extends ChangeNotifier {
       };
     }
 
-    // platicando = true;
+    platicando = true;
 
-    // // Iniciar Sesión
-    // final loginOk =
-    //     await authService.login(mail.text.trim(), password.text.trim());
+    // Iniciar Sesión
+    final loginOk =
+        await authService.login(email.text.trim(), password.text.trim());
 
-    // platicando = false;
-
-    // return {
-    //   'status': loginOk,
-    //   'msg': loginOk ? 'Correcto' : 'Credenciales no validas'
-    // };
+    platicando = false;
 
     return {
-      'status': true,
-      'msg': 'Correcto',
+      'status': loginOk,
+      'msg': loginOk ? 'Correcto' : 'Credenciales no validas'
     };
   }
 }

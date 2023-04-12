@@ -1,4 +1,4 @@
-package com.example.naiban
+package talent.cartoshare.naiban
 
 import io.flutter.embedding.android.FlutterActivity
 
