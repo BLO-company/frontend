@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 
 import '../blocs/_blocs.dart';
 import '../views/_views.dart';
 import '../widgets/_widgets.dart';
+import '../providers/_providers.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -33,6 +36,8 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
+    final mapProv = Provider.of<MapProvider>(context);
+
     return Scaffold(
       body: BlocBuilder<LocationBloc, LocationState>(
         builder: (context, locationState) {
@@ -47,17 +52,27 @@ class _MapPageState extends State<MapPage> {
                 polylines.removeWhere((key, value) => key == 'myRoute');
               }
 
-              return SingleChildScrollView(
-                child: Stack(
-                  children: [
-                    MapView(
-                      initialLocation: locationState.lastKnownLocation!,
-                      polylines: polylines.values.toSet(),
+              return Stack(
+                children: [
+                  MapView(
+                    initialLocation: locationState.lastKnownLocation!,
+                    polylines: polylines.values.toSet(),
+                  ),
+                  if (mapProv.small)
+                    GestureDetector(
+                      onTap: () {
+                        mapProv.small = !mapProv.small;
+                        Navigator.pushNamed(context, 'map');
+                      },
+                      child: Container(
+                        height: 500,
+                        width: 500,
+                        color: Colors.transparent,
+                      ),
                     ),
-                    const SearchBar(),
-                    const ManualMarker(),
-                  ],
-                ),
+                  if (!mapProv.small) const SearchBar(),
+                  if (!mapProv.small) const ManualMarker(),
+                ],
               );
             },
           );
@@ -66,10 +81,10 @@ class _MapPageState extends State<MapPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: const [
-          BtnToggleUserRoute(),
-          BtnFollowUser(),
-          BtnCurrentLocation(),
+        children: [
+          // BtnToggleUserRoute(),
+          // BtnFollowUser(),
+          if (!mapProv.small) const BtnCurrentLocation(),
         ],
       ),
     );

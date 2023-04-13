@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naiban/pages/_pages.dart';
 
 import '../themes/my_theme.dart';
 import '../prefabs/_prefabs.dart';
@@ -58,10 +59,11 @@ class Secondary extends StatelessWidget {
         ),
         const SizedBox(width: 16),
         Box(
-          const SizedBox(),
+          const MapPage(),
           height: size.height * .22462203,
           width: 174,
           color: AppTheme.white2,
+          padding: false,
         ),
       ],
     );

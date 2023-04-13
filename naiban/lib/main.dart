@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LogInOnProvider()),
         ChangeNotifierProvider(create: (_) => RegisterProvider()),
-        ChangeNotifierProvider(create: (_) => GpsProvider()),
+        ChangeNotifierProvider(create: (_) => MapProvider()),
       ],
       child: const App(),
     );

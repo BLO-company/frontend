@@ -6,4 +6,5 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   'home': (_) => const HomePage(),
   'welcome': (_) => const WelcomePage(),
   'register': (_) => const LogInOnPage(),
+  'map': (_) => const MapPage(),
 };
