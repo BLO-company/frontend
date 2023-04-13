@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/_blocs.dart';
 import '../providers/_providers.dart';
 import '../routes/routes.dart';
+import '../services/_services.dart';
 import '../themes/my_theme.dart';
 
 void main() => runApp(MultiBlocProvider(

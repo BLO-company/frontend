@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -44,7 +43,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   void stopFollowingUser() {
     positionStream?.cancel();
     add(OnStopFollowingUser());
-    log('stopFollowingUser');
+    print('stopFollowingUser');
   }
 
   @override
