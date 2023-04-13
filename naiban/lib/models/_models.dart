@@ -1,3 +1,4 @@
+export 'package:naiban/models/places_models.dart';
 export 'package:naiban/models/route_destination.dart';
 export 'package:naiban/models/search_result.dart';
 export 'package:naiban/models/traffic_response.dart';
