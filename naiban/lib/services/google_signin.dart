@@ -20,7 +20,7 @@ class GoogleSignInService {
       final signInWithGoogleEndpoint =
           Uri.parse('${Environment.apiUrl}/login/google');
 
-      final session = await http
+      /*final session =*/ await http
           .post(signInWithGoogleEndpoint, body: {'token': googleKey.idToken});
 
       // Recibir el Token por parte del servidor para posteriormente

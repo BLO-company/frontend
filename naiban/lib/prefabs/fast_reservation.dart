@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:naiban/themes/my_theme.dart';
-import 'package:naiban/widgets/button.dart';
+
+import '../themes/my_theme.dart';
+import '../widgets/button.dart';
 
 class FastReservation extends StatelessWidget {
   const FastReservation({super.key});
@@ -111,9 +112,10 @@ class _CarInfo extends StatelessWidget {
                     )),
               ],
             ),
-            const Button(
+            Button(
               'Reservar',
               width: .35,
+              onTap: () {},
             ),
           ],
         ),
