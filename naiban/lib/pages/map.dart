@@ -70,7 +70,7 @@ class _MapPageState extends State<MapPage> {
                         color: Colors.transparent,
                       ),
                     ),
-                  if (!mapProv.small) const SearchBar(),
+                  if (!mapProv.small) const CustomSearchBar(),
                   if (!mapProv.small) const ManualMarker(),
                 ],
               );
