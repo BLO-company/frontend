@@ -70,7 +70,7 @@ class _SearchBarBody extends StatelessWidget {
                         blurRadius: 5,
                         offset: Offset(0, 5))
                   ]),
-              child: const Text('¿Dónde quieres ir?',
+              child: const Text('¿A dónde quieres ir?',
                   style: TextStyle(color: Colors.black87)),
             )),
       ),
