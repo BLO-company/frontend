@@ -12,12 +12,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<GpsBloc, GpsState>(
-        builder: (context, state) {
-          return state.isAllGranted
-              ? const FeedScreen()
-              : const GpsAccessPage();
-        },
+      body: SafeArea(
+        child: BlocBuilder<GpsBloc, GpsState>(
+          builder: (context, state) {
+            return state.isAllGranted
+                ? const FeedScreen()
+                : const GpsAccessPage();
+          },
+        ),
       ),
     );
   }
